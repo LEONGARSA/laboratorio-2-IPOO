@@ -13,7 +13,9 @@
 
 /**
   CLASE: EmpresaDeMudanza.h
-  INTENCIÓN:
+  INTENCIÓN:Validar en un vector que contiene 3 camiones
+            si se puede transportar un peso total de 13330 kg,
+            dicho peso repartido enre ellos.
   RELACIONES: ninguna
 */
 
@@ -31,7 +33,7 @@ class EmpresaDeMudanza
   string nombreEmpresa;
   int nit;
   vector <Camion> flotaDeCamiones;
-  vector <int> objetos;
+  vector <int> objetosM;
 
   public:
   /**constructor da valor incial */
@@ -43,7 +45,9 @@ class EmpresaDeMudanza
   /** objetos de mudanza */
   virtual void objetosDeMudanza(int carga);
   /** carga camiones obejeto por objeto teniedo en cuenta su peso */
-  virtual int cargarCamiones();
+  virtual int pesoDelObjeto();
+  virtual int numeroDeObjeto();
+  /** retorna los pesos transportados de los camiones */
 };
 
 

@@ -44,15 +44,18 @@ int main() {
   QuiebraTodo.objetosDeMudanza(objetos.at(cualObjeto));
   }
 
-  cout << "El objeto número " << QuiebraTodo.cargarCamiones()<< " que pesa "
-             << QuiebraTodo.cargarCamiones() << " no se puede cargar en ningún camión."
+  cout << "El objeto número " << QuiebraTodo.numeroDeObjeto()+1<< " que pesa "
+             << QuiebraTodo.pesoDelObjeto() << " no se puede cargar en ningún camión."
              << endl;
   
 /*
-  for (int cualObjeto = 0; cualObjeto < objetos.size(); cualObjeto++) {
+  for (int cualObjeto = 0; cualObjeto < objetos.size(); cualObjeto++) 
+  {
     int objetoATransportar = objetos[cualObjeto];
-    if (not unCamion.cargarUnObjeto(objetoATransportar)) {
-      if (not otroCamion.cargarUnObjeto(objetoATransportar)) {
+    if (not unCamion.cargarUnObjeto(objetoATransportar))
+    {
+      if (not otroCamion.cargarUnObjeto(objetoATransportar))
+      {
         cout << "El objeto número " << cualObjeto << " que pesa "
              << objetos[cualObjeto] << " no se puede cargar en ningún camión."
              << endl;
@@ -60,8 +63,8 @@ int main() {
     }
   }
 */
-  unCamion.hacerMudanza();
-  otroCamion.hacerMudanza();
+ unCamion.hacerMudanza();
+ otroCamion.hacerMudanza();
 
   cout << "El camión " << unCamion.cualEsLaPlaca() << " transportó "
        << unCamion.pesoTransportado() << " kg." << endl;

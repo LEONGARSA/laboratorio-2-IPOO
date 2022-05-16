@@ -31,26 +31,40 @@ void EmpresaDeMudanza :: comprarCamiones (Camion camiones)
 
 void EmpresaDeMudanza :: objetosDeMudanza(int carga)
 {
-  objetos.push_back(carga);
+  objetosM.push_back(carga);
+  
 }
 
 
 
-int EmpresaDeMudanza :: cargarCamiones()
+int EmpresaDeMudanza :: pesoDelObjeto()
 {
-    
-  for (int cualObjeto = 0; cualObjeto < objetos.size(); cualObjeto++) 
+  for (int cualObjeto = 0; cualObjeto < objetosM.size(); cualObjeto++) 
   {
-    int objetoATransportar = objetos[cualObjeto];
-    for (int cualCamion = 0; cualCamion < flotaDeCamiones.size(); cualCamion++)
+    int objetoATransportar = objetosM[cualObjeto];
+    if (not flotaDeCamiones[0].cargarUnObjeto(objetoATransportar))
     {
-      Camion camionACargar=flotaDeCamiones[cualCamion];
-        if (not camionACargar.cargarUnObjeto(objetoATransportar))
-      { 
+      if (not flotaDeCamiones[1].cargarUnObjeto(objetoATransportar))
+      {
+       return objetoATransportar;
       }
     }
-    return cualObjeto;
-    return objetoATransportar; 
+  }
+}
+
+int EmpresaDeMudanza :: numeroDeObjeto()
+{
+  for (int cualObjeto = 0; cualObjeto < objetosM.size(); cualObjeto++) 
+  {
+    int objetoATransportar = objetosM[cualObjeto];
+    if (not flotaDeCamiones[0].cargarUnObjeto(objetoATransportar))
+    {
+      if (not flotaDeCamiones[1].cargarUnObjeto(objetoATransportar))
+      {
+      
+      return cualObjeto;
+      }
+    }
   }
 }
 
