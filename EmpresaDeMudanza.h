@@ -12,13 +12,13 @@
 
 
 /**
-  CLASE: EmpresaMudanza.h
+  CLASE: EmpresaDeMudanza.h
   INTENCIÓN:
   RELACIONES: ninguna
 */
 
-#ifndef EmpresaDeMudanza_H
-#define EmpresaDeMudanza_H
+#ifndef EMPRESADEMUDANZA_H
+#define EMPRESADEMUDANZA_H
 
 #include<string>
 #include"Camion.h" 
@@ -30,22 +30,23 @@ class EmpresaDeMudanza
   private:
   string nombreEmpresa;
   int nit;
-  vector <Camion>
+  vector <Camion> flotaDeCamiones;
+  vector <int> objetos;
 
-
-
-
-
+  public:
+  /**constructor da valor incial */
+  EmpresaDeMudanza();
+  /**destructor*/
+  virtual ~EmpresaDeMudanza ();
+  /**compra los camiones para la empresa*/
+  virtual void comprarCamiones (Camion camiones);
+  /** objetos de mudanza */
+  virtual void objetosDeMudanza(int carga);
+  /** carga camiones obejeto por objeto teniedo en cuenta su peso */
+  virtual int cargarCamiones();
 };
 
 
 #else
 class EmpresaDeMudanza; // Declaración adelantada 
 #endif
-
-
-
-
-
-
-

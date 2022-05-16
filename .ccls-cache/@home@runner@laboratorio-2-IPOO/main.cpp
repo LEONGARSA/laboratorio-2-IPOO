@@ -22,6 +22,7 @@
  */
 
 #include "Camion.h"
+#include "EmpresaDeMudanza.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -30,22 +31,35 @@ using namespace std;
 int main() {
   Camion unCamion("ABC-001", 10000);
   Camion otroCamion("DEF-002", 5000);
-  Camion camion3("GHI-003", 4000);
 
   vector<int> objetos = {1000, 3000, 5000, 2000, 500, 1800, 4000, 30};
 
+  EmpresaDeMudanza QuiebraTodo; 
+
+  QuiebraTodo.comprarCamiones(unCamion);
+  QuiebraTodo.comprarCamiones(otroCamion);
+
+  for (int cualObjeto = 0; cualObjeto < objetos.size(); cualObjeto++) 
+  {
+  QuiebraTodo.objetosDeMudanza(objetos.at(cualObjeto));
+  }
+
+  cout << "El objeto número " << QuiebraTodo.cargarCamiones()<< " que pesa "
+             << QuiebraTodo.cargarCamiones() << " no se puede cargar en ningún camión."
+             << endl;
+  
+/*
   for (int cualObjeto = 0; cualObjeto < objetos.size(); cualObjeto++) {
     int objetoATransportar = objetos[cualObjeto];
     if (not unCamion.cargarUnObjeto(objetoATransportar)) {
       if (not otroCamion.cargarUnObjeto(objetoATransportar)) {
-        cout << "El objeto número " << cualObjeto 
-             << " que pesa "<< objetos[cualObjeto]
-             << " no se puede cargar en ningún camión." 
+        cout << "El objeto número " << cualObjeto << " que pesa "
+             << objetos[cualObjeto] << " no se puede cargar en ningún camión."
              << endl;
       }
     }
   }
-
+*/
   unCamion.hacerMudanza();
   otroCamion.hacerMudanza();
 
