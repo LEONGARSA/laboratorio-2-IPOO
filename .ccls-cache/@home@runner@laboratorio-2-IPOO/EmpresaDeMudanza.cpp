@@ -45,6 +45,9 @@ int EmpresaDeMudanza :: cuantosCamionesHayEnLaEmpresa()
 { 
   for (int i = 0; i < objetosM.size(); i++)
    {
+    if (objetosM.size()==0){
+      break;
+    }
      int objetoATransportar = objetosM[i];
       
         for (int camionUsado = 0; camionUsado < flotaDeCamiones.size(); camionUsado++)
