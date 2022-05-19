@@ -34,19 +34,21 @@ int main() {
 
   vector<int> objetos = {1000, 3000, 5000, 2000, 500, 1800, 4000, 30};
 
-  EmpresaDeMudanza QuiebraTodo; 
+  EmpresaDeMudanza MudanzaLeoyGeo("MudanzaLeoyGeo","5465465436");
 
-  QuiebraTodo.comprarCamiones(unCamion);
-  QuiebraTodo.comprarCamiones(otroCamion);
+  MudanzaLeoyGeo.comprarCamiones(unCamion);
+  MudanzaLeoyGeo.comprarCamiones(otroCamion);
 
   for (int cualObjeto = 0; cualObjeto < objetos.size(); cualObjeto++) 
   {
-  QuiebraTodo.objetosDeMudanza(objetos.at(cualObjeto));
+  MudanzaLeoyGeo.objetosDeMudanza(objetos.at(cualObjeto));
   }
 
-  cout << "El objeto número " << QuiebraTodo.numeroDeObjeto()+1<< " que pesa "
-             << QuiebraTodo.pesoDelObjeto() << " no se puede cargar en ningún camión."
-             << endl;
+  cout << "El objeto número " << MudanzaLeoyGeo.cuantosCamionesHayEnLaEmpresa()<< " que pesa:"<< endl;
+  
+  cout  << " no se puede cargar en ningún camión." << endl;
+
+  
   
 /*
   for (int cualObjeto = 0; cualObjeto < objetos.size(); cualObjeto++) 
@@ -66,10 +68,6 @@ int main() {
  unCamion.hacerMudanza();
  otroCamion.hacerMudanza();
 
-  cout << "El camión " << unCamion.cualEsLaPlaca() << " transportó "
-       << unCamion.pesoTransportado() << " kg." << endl;
-  cout << "El camión " << otroCamion.cualEsLaPlaca() << " transportó "
-       << otroCamion.pesoTransportado() << " kg." << endl;
 
   unCamion.descargar();
   otroCamion.descargar();

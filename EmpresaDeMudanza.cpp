@@ -11,61 +11,52 @@
 */
 
 #include"EmpresaDeMudanza.h"
+#include"Camion.h"
 
 
 
-EmpresaDeMudanza :: EmpresaDeMudanza()
+EmpresaDeMudanza::EmpresaDeMudanza(string nombrelaEmpresa, string nitDelaEmpresa)
 {
-//no hace nada 
+nombreEmpresa = nombrelaEmpresa;
+nitDeEmpresa = nitDelaEmpresa;
+flotaDeCamiones = {};
+objetosM = {};
 } 
 
-EmpresaDeMudanza :: ~EmpresaDeMudanza ()
-{
-  //no hace nada 
-}
+
+
+
+
 
 void EmpresaDeMudanza :: comprarCamiones (Camion camiones)
 {
   flotaDeCamiones.push_back(camiones);
+  
 }
 
 void EmpresaDeMudanza :: objetosDeMudanza(int carga)
 {
-  objetosM.push_back(carga);
-  
+  objetosM.push_back(carga);  
 }
 
 
 
-int EmpresaDeMudanza :: pesoDelObjeto()
-{
-  for (int cualObjeto = 0; cualObjeto < objetosM.size(); cualObjeto++) 
-  {
-    int objetoATransportar = objetosM[cualObjeto];
-    if (not flotaDeCamiones[0].cargarUnObjeto(objetoATransportar))
-    {
-      if (not flotaDeCamiones[1].cargarUnObjeto(objetoATransportar))
-      {
-       return objetoATransportar;
-      }
-    }
-  }
-}
-
-int EmpresaDeMudanza :: numeroDeObjeto()
-{
-  for (int cualObjeto = 0; cualObjeto < objetosM.size(); cualObjeto++) 
-  {
-    int objetoATransportar = objetosM[cualObjeto];
-    if (not flotaDeCamiones[0].cargarUnObjeto(objetoATransportar))
-    {
-      if (not flotaDeCamiones[1].cargarUnObjeto(objetoATransportar))
-      {
+int EmpresaDeMudanza :: cuantosCamionesHayEnLaEmpresa()
+{ 
+  for (int i = 0; i < objetosM.size(); i++)
+   {
+     int objetoATransportar = objetosM[i];
       
-      return cualObjeto;
-      }
-    }
+        for (int camionUsado = 0; camionUsado < flotaDeCamiones.size(); camionUsado++)
+          {
+                //Camion camionAcargar= flotaDeCamiones[camionUsado];
+                  
+                       if (flotaDeCamiones[camionUsado].cargarUnObjeto(objetoATransportar)==true)
+                          {
+                              break;
+                          }
+          
+          } 
+                
   }
-}
-
-   
+}   

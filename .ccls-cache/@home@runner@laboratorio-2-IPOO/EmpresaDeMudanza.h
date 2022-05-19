@@ -1,3 +1,4 @@
+
 /*
   Archivo: EmpresaMudanza.h
 
@@ -22,8 +23,9 @@
 #ifndef EMPRESADEMUDANZA_H
 #define EMPRESADEMUDANZA_H
 
-#include<string>
-#include"Camion.h" 
+#include"Camion.h"
+#include <string>
+#include<iostream>
 #include<vector> 
 using namespace std;
 
@@ -31,23 +33,33 @@ class EmpresaDeMudanza
 {
   private:
   string nombreEmpresa;
-  int nit;
+  string nitDeEmpresa;
   vector <Camion> flotaDeCamiones;
-  vector <int> objetosM;
-
+  vector <int> objetosM ;
   public:
+
   /**constructor da valor incial */
-  EmpresaDeMudanza();
+  EmpresaDeMudanza(string nombrelaEmpresa, string nitDelaEmpresa);
+
   /**destructor*/
-  virtual ~EmpresaDeMudanza ();
+
+  /**retorna norble de la empresa*/
+  string nombreDeLaEmpresa();
+
+  /**retorna nt de la empresa*/
+  int nitEmpresa();
+
   /**compra los camiones para la empresa*/
   virtual void comprarCamiones (Camion camiones);
+
   /** objetos de mudanza */
   virtual void objetosDeMudanza(int carga);
+
+  /** retorna la cantidad de camiones de la empresa */
+  virtual int cuantosCamionesHayEnLaEmpresa();
   /** carga camiones obejeto por objeto teniedo en cuenta su peso */
-  virtual int pesoDelObjeto();
-  virtual int numeroDeObjeto();
   /** retorna los pesos transportados de los camiones */
+
 };
 
 
