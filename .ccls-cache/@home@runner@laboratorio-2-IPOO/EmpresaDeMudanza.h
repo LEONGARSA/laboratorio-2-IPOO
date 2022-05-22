@@ -7,24 +7,21 @@
   <garcia.leonardo@correounivalle.edu.co>
 
   Fecha creación: 08-05-2022
-  Fecha última modificación:08-05-2022
+  Fecha última modificación:21-05-2022
   Licencia: GNU- GPL
 */
 
 
 /**
   CLASE: EmpresaDeMudanza.h
-  INTENCIÓN:Validar en un vector que contiene 3 camiones
-            si se puede transportar un peso total de 13330 kg,
-            dicho peso repartido enre ellos.
-  RELACIONES: ninguna
+  INTENCIÓN: 
+  RELACIONES: Camiones 
 */
 
 #ifndef EMPRESADEMUDANZA_H
 #define EMPRESADEMUDANZA_H
 
 #include"Camion.h"
-#include <string>
 #include<iostream>
 #include<vector> 
 using namespace std;
@@ -56,12 +53,13 @@ class EmpresaDeMudanza
   virtual void objetosDeMudanza(int carga);
 
   /** retorna la cantidad de camiones de la empresa */
-  virtual int cuantosCamionesHayEnLaEmpresa();
-  /** carga camiones obejeto por objeto teniedo en cuenta su peso */
-  /** retorna los pesos transportados de los camiones */
+  virtual int pesoDeFlota();
+
+  /** retorna la cantidad de camiones de la empresa */
+  virtual int pesoDeCamionesCargados();
+  
 
 };
-
 
 #else
 class EmpresaDeMudanza; // Declaración adelantada 

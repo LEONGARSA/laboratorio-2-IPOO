@@ -44,7 +44,7 @@ int main() {
   MudanzaLeoyGeo.objetosDeMudanza(objetos.at(cualObjeto));
   }
 
-  cout << "El objeto número " << MudanzaLeoyGeo.cuantosCamionesHayEnLaEmpresa()<< " que pesa:"<< endl;
+  cout << "El objeto número " << MudanzaLeoyGeo.pesoDeFlota()<< " que pesa:"<< endl;
   
   cout  << " no se puede cargar en ningún camión." << endl;
 
@@ -69,8 +69,7 @@ int main() {
  otroCamion.hacerMudanza();
 
 
-  unCamion.descargar();
-  otroCamion.descargar();
+otroCamion.descargar();
 
   return 0;
 }

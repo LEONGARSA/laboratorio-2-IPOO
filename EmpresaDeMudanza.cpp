@@ -11,22 +11,17 @@
 */
 
 #include"EmpresaDeMudanza.h"
-#include"Camion.h"
+
 
 
 
 EmpresaDeMudanza::EmpresaDeMudanza(string nombrelaEmpresa, string nitDelaEmpresa)
 {
-nombreEmpresa = nombrelaEmpresa;
-nitDeEmpresa = nitDelaEmpresa;
-flotaDeCamiones = {};
-objetosM = {};
+  nombreEmpresa = nombrelaEmpresa;
+  nitDeEmpresa = nitDelaEmpresa;
+  flotaDeCamiones = {};
+  objetosM = {}; 
 } 
-
-
-
-
-
 
 void EmpresaDeMudanza :: comprarCamiones (Camion camiones)
 {
@@ -41,25 +36,44 @@ void EmpresaDeMudanza :: objetosDeMudanza(int carga)
 
 
 
-int EmpresaDeMudanza :: cuantosCamionesHayEnLaEmpresa()
+
+
+
+int EmpresaDeMudanza :: pesoDeFlota()
 { 
-  for (int i = 0; i < objetosM.size(); i++)
-   {
-    if (objetosM.size()==0){
+  double pesoCargado = 0;
+  double peso = 0 ;
+  for (int unObjeto = 0; unObjeto < objetosM.size(); unObjeto++)
+  {
+    int objetoATransportar = objetosM.at(unObjeto);
+    
+    for (int camionUsado = 0; camionUsado < flotaDeCamiones.size(); camionUsado++)
+    {
+      if (flotaDeCamiones[camionUsado].cargarUnObjeto(objetoATransportar)==true)
+      {
+        break;
+      }
+      else
+      {
+        flotaDeCamiones[camionUsado].hacerMudanza();
+        
+      }
+      peso = flotaDeCamiones[camionUsado].pesoTransportado()- peso - objetoATransportar;  
       break;
     }
-     int objetoATransportar = objetosM[i];
-      
-        for (int camionUsado = 0; camionUsado < flotaDeCamiones.size(); camionUsado++)
-          {
-                //Camion camionAcargar= flotaDeCamiones[camionUsado];
-                  
-                       if (flotaDeCamiones[camionUsado].cargarUnObjeto(objetoATransportar)==true)
-                          {
-                              break;
-                          }
-          
-          } 
-                
-  }
+    pesoCargado = pesoCargado + objetoATransportar;
+  }  
+  return peso;
 }   
+
+
+int EmpresaDeMudanza :: pesoDeCamionesCargados()
+{
+  double peso = 0 ;
+ for (int camionUsado = 0; camionUsado < flotaDeCamiones.size(); camionUsado++)
+ {
+   flotaDeCamiones[camionUsado].hacerMudanza();
+   peso = flotaDeCamiones[camionUsado].pesoTransportado();
+ }  
+  return peso;
+}
