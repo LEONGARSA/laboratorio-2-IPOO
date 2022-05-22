@@ -49,31 +49,39 @@ int EmpresaDeMudanza :: pesoDeFlota()
     
     for (int camionUsado = 0; camionUsado < flotaDeCamiones.size(); camionUsado++)
     {
+      
       if (flotaDeCamiones[camionUsado].cargarUnObjeto(objetoATransportar)==true)
       {
-        break;
-      }
-      else
-      {
-        flotaDeCamiones[camionUsado].hacerMudanza();
-        
-      }
-      peso = flotaDeCamiones[camionUsado].pesoTransportado()- peso - objetoATransportar;  
+       break; 
+      }  
+    }
+    int peso1=0;
+    for (int camionUsado = 0; camionUsado < flotaDeCamiones.size(); camionUsado++)
+    {
+      flotaDeCamiones[camionUsado].hacerMudanza(); 
+      peso1 =  flotaDeCamiones[camionUsado].pesoTransportado();
       break;
     }
-    pesoCargado = pesoCargado + objetoATransportar;
+    int peso2=0;
+    for (int camionUsado = 0; camionUsado < flotaDeCamiones.size(); camionUsado++)
+    {
+      flotaDeCamiones[camionUsado].hacerMudanza(); 
+      peso2 = flotaDeCamiones[camionUsado].pesoTransportado();
+    }
+    
+    pesoCargado = peso1 + peso2 ;
   }  
-  return peso;
+  return pesoCargado ;
 }   
 
 
 int EmpresaDeMudanza :: pesoDeCamionesCargados()
 {
-  double peso = 0 ;
+  double p = 0 ;
  for (int camionUsado = 0; camionUsado < flotaDeCamiones.size(); camionUsado++)
  {
    flotaDeCamiones[camionUsado].hacerMudanza();
-   peso = flotaDeCamiones[camionUsado].pesoTransportado();
+   p = flotaDeCamiones[camionUsado].pesoTransportado();
  }  
-  return peso;
+  return p;
 }
